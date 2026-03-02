@@ -1,0 +1,89 @@
+---
+export const faqs = [
+  {
+    question: "Do I have to sign a long-term contract?",
+    answer: "No. While we offer recurring contracts (daily, weekly, monthly) for our commercial clients, all our service plans come with a 30-day adjustment period. If our service isn't a perfect fit, we'll make it right or let you walk away."
+  },
+  {
+    question: "Do you bring your own cleaning supplies and equipment?",
+    answer: "Yes, our teams arrive fully equipped with professional-grade cleaning products and tools. If your facility requires specific specialized products, we can accommodate those requests."
+  },
+  {
+    question: "Can you clean our office after hours?",
+    answer: "Absolutely. We offer flexible scheduling including nights and weekends. Many of our commercial clients prefer us to clean after their staff has left for the day to minimize disruption to their business operations."
+  },
+  {
+    question: "Are your cleaners insured?",
+    answer: "Yes, TML Property Services is fully licensed, bonded, and insured. We treat your property with the utmost respect and provide full coverage for peace of mind."
+  },
+  {
+    question: "How do you price your commercial cleaning services?",
+    answer: "We provide custom, competitive pricing based on the square footage of your space, the frequency of cleaning required, and the specific services needed. We offer a free on-site estimate to give you an accurate, no-obligation quote."
+  }
+];
+
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<section id="faq" class="py-24 bg-light" aria-label="Frequently Asked Questions">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Frequently Asked Questions</h2>
+      <p class="text-lg text-dark/70">Clear answers about our commercial and residential cleaning services.</p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <div class="faq-group bg-white border border-primary/10 overflow-hidden group">
+          <button class="faq-question w-full text-left font-heading text-xl text-primary p-6 m-0 cursor-pointer flex justify-between items-center bg-white z-10 relative select-none">
+            <span>{faq.question}</span>
+            <svg class="w-5 h-5 text-accent transform transition-transform duration-500 group-[.is-open]:rotate-180 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-[.is-open]:grid-rows-[1fr]">
+            <div class="overflow-hidden">
+              <div class="px-6 pb-6 pt-2 text-dark/70 leading-relaxed font-light">
+                {faq.answer}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Runs perfectly on load and seamlessly handles the FAQ toggles without React hydration overhead
+  document.addEventListener('DOMContentLoaded', () => {
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const parent = q.parentElement;
+        const wasOpen = parent?.classList.contains('is-open');
+        
+        // Close all others for an elegant accordion feel
+        document.querySelectorAll('.faq-group').forEach(group => {
+          group.classList.remove('is-open');
+        });
+
+        // Open the clicked one if it wasn't already open
+        if (!wasOpen) {
+          parent?.classList.add('is-open');
+        }
+      });
+    });
+  });
+</script>

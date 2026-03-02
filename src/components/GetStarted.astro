@@ -1,0 +1,60 @@
+---
+import ContactForm from './ContactForm.jsx';
+---
+
+<section id="get-started" class="py-24 bg-dark text-background relative" aria-label="Get a Free Estimate">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-16">
+      
+      <!-- Left side: Copy & Trust -->
+      <div class="lg:w-1/2">
+        <span class="text-accent font-mono uppercase tracking-widest text-sm mb-4 block">Take the next step</span>
+        <h2 class="text-3xl md:text-5xl font-heading mb-6">Get your free on-site estimate.</h2>
+        <p class="text-lg text-background/80 mb-10 leading-relaxed font-light">
+          Whether you need a reliable commercial contract or a detailed post-construction sweep, let's discuss your space. Fill out the form, and we'll reach out immediately to schedule your walkthrough.
+        </p>
+
+        <div class="space-y-6 mb-10">
+          <div class="flex items-start gap-4">
+            <div class="mt-1 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">1</div>
+            <div>
+              <h4 class="font-heading text-xl mb-1">Submit your details</h4>
+              <p class="text-background/70 text-sm">Tell us what you need and where you're located.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="mt-1 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">2</div>
+            <div>
+              <h4 class="font-heading text-xl mb-1">We'll call you</h4>
+              <p class="text-background/70 text-sm">We'll reach out to discuss your specific requirements.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="mt-1 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">3</div>
+            <div>
+              <h4 class="font-heading text-xl mb-1">Free on-site quote</h4>
+              <p class="text-background/70 text-sm">We assess your space to give you an accurate price.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-md border border-background/10">
+          <div class="flex gap-1" aria-label="5 stars">
+            {[1,2,3,4,5].map(i => (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#C4A265" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="text-sm font-medium">Backed by our 30-Day Guarantee.</p>
+        </div>
+      </div>
+
+      <!-- Right side: Form -->
+      <div class="lg:w-1/2">
+        <ContactForm client:load />
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+---
+const { title, description, canonical, ogImage, brandName, keyword, city, state, phone, email, address, hours, socialUrls, rating, reviewCount, businessType, services, faqs, areaServed, locations } = Astro.props;
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "CleaningService",
+  "name": "TML Property Services",
+  "description": "Detail-oriented commercial and residential cleaning solutions serving Utah County and Salt Lake County.",
+  "url": "https://thismessielife.com",
+  "telephone": "(801) 635-4589",
+  "email": "brianajean@thismessielife.com",
+  "areaServed": [
+    { "@type": "City", "name": "Provo" },
+    { "@type": "City", "name": "Orem" },
+    { "@type": "City", "name": "Lindon" },
+    { "@type": "City", "name": "Pleasant Grove" },
+    { "@type": "City", "name": "American Fork" },
+    { "@type": "City", "name": "Spanish Fork" },
+    { "@type": "City", "name": "Springville" },
+    { "@type": "City", "name": "Vineyard" },
+    { "@type": "City", "name": "Lehi" },
+    { "@type": "City", "name": "Alpine" },
+    { "@type": "City", "name": "Cedar Hills" },
+    { "@type": "City", "name": "Highland" },
+    { "@type": "City", "name": "Saratoga Springs" },
+    { "@type": "City", "name": "Eagle Mountain" },
+    { "@type": "City", "name": "Sandy" },
+    { "@type": "City", "name": "Draper" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/thismessielife/",
+    "https://www.facebook.com/thismessielifetml",
+    "https://www.youtube.com/@ThisMessieLife",
+    "https://www.tiktok.com/@thismessielife"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ],
+  "image": "https://thismessielife.com/images/og-image.jpg"
+};
+
+const websiteSchema = { 
+  "@context": "https://schema.org", 
+  "@type": "WebSite", 
+  "name": "TML Property Services", 
+  "url": "https://thismessielife.com" 
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+{canonical && <link rel="canonical" href={canonical} />}
+
+<!-- Geo Targeting -->
+<meta name="geo.region" content="US-UT" />
+<meta name="geo.placename" content="Provo" />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage || "https://thismessielife.com/images/og-image.jpg"} />
+<meta property="og:url" content={canonical || "https://thismessielife.com"} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+<!-- Google Fonts with preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+
+<!-- WebSite Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+{faqs && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqs)} />
+)}

@@ -1,0 +1,34 @@
+---
+import Head from '../components/Head.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import FloatingMobileCTA from '../components/FloatingMobileCTA.astro';
+import NoiseOverlay from '../components/NoiseOverlay.astro';
+import '../styles/global.css';
+
+const { title, description, canonical, ogImage, faqs } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <Head 
+      title={title} 
+      description={description} 
+      canonical={canonical} 
+      ogImage={ogImage}
+      faqs={faqs}
+    />
+  </head>
+  <body class="bg-[#FAF8F5] text-[#2B2B2B] font-body relative overflow-x-hidden min-h-screen flex flex-col selection:bg-[#C4A265] selection:text-[#1B2A4A]">
+    <NoiseOverlay />
+    <Navbar />
+    
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+    <FloatingMobileCTA />
+  </body>
+</html>

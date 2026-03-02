@@ -1,0 +1,81 @@
+---
+import CounterStats from './CounterStats.jsx';
+---
+
+<section id="reviews" class="py-24 bg-white relative" aria-label="Client Testimonials and Social Proof">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-16 items-center">
+      
+      <!-- Left side: Stats & Trust -->
+      <div class="lg:w-1/3">
+        <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6 text-balance">Trusted by Utah County properties.</h2>
+        <p class="text-dark/70 mb-8">From SaaS company headquarters to expanding medical offices, we're the detail-oriented team property managers trust.</p>
+        
+        <div class="grid grid-cols-2 gap-6 mb-8 border-t border-b border-light py-6">
+          <div>
+            <CounterStats target={5} suffix="+" client:visible fallback="5+" />
+            <p class="text-sm font-mono text-secondary mt-1">YEARS EXP.</p>
+          </div>
+          <div>
+            <CounterStats target={100} suffix="s" client:visible fallback="100s" />
+            <p class="text-sm font-mono text-secondary mt-1">CLEANS</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="flex gap-1" aria-label="5 stars">
+            {[1,2,3,4,5].map(i => (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#a4a89f" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <span class="text-sm font-medium text-primary">Highly Rated</span>
+        </div>
+      </div>
+
+      <!-- Right side: Testimonial Cards -->
+      <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="bg-background p-8 container-rounded md:mt-12">
+          <svg class="mb-4 opacity-20" width="32" height="32" viewBox="0 0 24 24" fill="#1B2A4A" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="text-dark leading-relaxed mb-6 font-medium">"TML handles our office cleaning three nights a week and the consistency is incredible. Our space looks perfect every single morning."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-heading font-bold">SM</div>
+            <div>
+              <p class="text-sm font-bold text-primary">Sarah M.</p>
+              <p class="text-xs text-dark/60">Office Manager, Provo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 & 3 -->
+        <div class="flex flex-col gap-6">
+          <div class="bg-background p-8 container-rounded">
+            <p class="text-dark leading-relaxed mb-6 font-medium">"We switched to TML after our last cleaning company kept cutting corners. Night and day difference. They actually care about the details."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-heading font-bold">JR</div>
+              <div>
+                <p class="text-sm font-bold text-primary">Jason R.</p>
+                <p class="text-xs text-dark/60">Property Manager, Lehi</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-dark p-8 container-rounded">
+            <p class="text-background leading-relaxed mb-6 font-medium">"Briana's team did our post-construction cleanup and I couldn't believe how thorough they were. Hired them for ongoing maintenance the same week."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary font-heading font-bold">DL</div>
+              <div>
+                <p class="text-sm font-bold text-background">David L.</p>
+                <p class="text-xs text-background/60">General Contractor, Orem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

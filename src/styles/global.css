@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #98a296;
+  --color-secondary: #9ca6a4;
+  --color-accent: #7c847c;
+  --color-background: #FAF8F5;
+  --color-dark: #2B2B2B;
+  --color-light: #F4F4F2;
+  --color-bud: #a4a89f;
+  --color-stack: #959e93;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-container: 0;
+  --radius-container-lg: 0;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-dark font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-body font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-dark hover:text-white border border-primary hover:border-dark relative z-10;
+  }
+  
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-body font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-dark hover:text-white border border-accent hover:border-dark relative z-10;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-dark text-dark font-body font-medium text-sm tracking-widest uppercase transition-all duration-300 hover:bg-dark hover:text-white;
+  }
+
+  .container-rounded {
+    @apply rounded-[var(--radius-container)] overflow-hidden;
+  }
+
+  .container-rounded-lg {
+    @apply rounded-[var(--radius-container-lg)] overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

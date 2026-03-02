@@ -1,0 +1,34 @@
+---
+const cities = [
+  "Provo", "Orem", "Lindon", "Pleasant Grove", 
+  "American Fork", "Spanish Fork", "Springville", "Vineyard", 
+  "Lehi", "Alpine", "Cedar Hills", "Highland", 
+  "Saratoga Springs", "Eagle Mountain", "Sandy", "Draper"
+];
+---
+
+<section id="areas" class="py-24 bg-white border-t border-primary/5" aria-label="Service Areas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-secondary font-mono uppercase tracking-widest text-sm mb-4 block">Service Area</span>
+    <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Serving Utah County & Beyond</h2>
+    
+    <p class="text-lg text-dark/70 max-w-2xl mx-auto mb-12">
+      From comprehensive commercial contracts in Lehi to move-in deep cleans in Provo, our teams are deployed daily across the region.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto mb-12">
+      {cities.map(city => (
+        <span class="px-4 py-2 bg-light text-dark/80 text-sm font-medium rounded-full border border-primary/10">
+          {city}
+        </span>
+      ))}
+    </div>
+
+    <div class="inline-flex flex-col items-center">
+      <a href="#get-started" class="btn-primary mb-4">
+        Request Service in Your City
+      </a>
+      <p class="text-sm text-dark/50">Don't see your city? Contact us to verify coverage.</p>
+    </div>
+  </div>
+</section>

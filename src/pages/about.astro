@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Philosophy from '../components/Philosophy.astro';
+
+const title = "About | TML Property Services";
+const description = "Learn more about TML Property Services. 5+ years of experience providing detail-oriented commercial and residential cleaning in Utah County.";
+---
+
+<BaseLayout title={title} description={description} canonical="https://thismessielife.com/about">
+  <div class="pt-32 pb-16 max-w-4xl mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-heading text-primary mb-6">About TML Property Services</h1>
+    <p class="text-lg text-dark/70 mb-12">
+      Founded on the belief that your space is a reflection of your brand. We bring "Editorial Clean" to Utah County properties.
+    </p>
+  </div>
+  
+  <Philosophy />
+</BaseLayout>

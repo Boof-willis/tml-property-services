@@ -1,0 +1,52 @@
+---
+import FeatureShuffler from './FeatureShuffler.jsx';
+import FeatureTypewriter from './FeatureTypewriter.jsx';
+import FeatureScheduler from './FeatureScheduler.jsx';
+---
+
+<section id="services" class="py-24 bg-light relative" aria-label="Our Cleaning Services">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Detail-oriented cleaning you can count on.</h2>
+      <p class="text-lg text-dark/80">From daily office maintenance to post-construction cleanup, our flexible teams work around your schedule to deliver immaculate results every time.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      
+      <!-- Card 1 -->
+      <div class="bg-white container-rounded p-8 shadow-sm border border-primary/5 flex flex-col h-full">
+        <div class="h-48 mb-8 bg-background container-rounded flex items-center justify-center relative overflow-hidden">
+          <FeatureTypewriter client:visible />
+        </div>
+        <h3 class="text-2xl font-heading text-primary mb-4">Comprehensive Services</h3>
+        <p class="text-dark/70 mb-6 flex-grow">Office maintenance, residential cleaning, move-in/move-out, and post-construction cleaning. We handle the details so you don't have to.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white container-rounded p-8 shadow-sm border border-primary/5 flex flex-col h-full">
+        <div class="h-48 mb-8 bg-background container-rounded flex items-center justify-center relative overflow-hidden">
+          <FeatureScheduler client:visible />
+        </div>
+        <h3 class="text-2xl font-heading text-primary mb-4">Flexible Scheduling</h3>
+        <p class="text-dark/70 mb-6 flex-grow">Days, nights, and weekends available. We build a customized schedule that works seamlessly with your business operations or personal life.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white container-rounded p-8 shadow-sm border border-primary/5 flex flex-col h-full">
+        <div class="h-48 mb-8 bg-primary container-rounded flex items-center justify-center relative overflow-hidden">
+          <FeatureShuffler client:visible />
+        </div>
+        <h3 class="text-2xl font-heading text-primary mb-4">30-Day Guarantee</h3>
+        <p class="text-dark/70 mb-6 flex-grow">Customizable service plans come with a 30-day adjustment period. We'll fine-tune our approach until it's perfectly tailored to your space.</p>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col items-center justify-center text-center">
+      <p class="text-dark/70 italic mb-6">"Hired them for ongoing maintenance the same week." — David L., General Contractor, Orem</p>
+      <a href="#get-started" class="btn-primary">
+        Get Your Free Estimate
+      </a>
+    </div>
+  </div>
+</section>

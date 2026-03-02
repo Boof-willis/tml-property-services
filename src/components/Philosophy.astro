@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import textureImg from '../assets/images/philosophy-texture.png';
+import PhilosophyReveal from './PhilosophyReveal.jsx';
+---
+
+<section id="about" class="relative py-32 overflow-hidden bg-dark text-background" aria-label="Our Philosophy">
+  <!-- Parallax Background Texture -->
+  <div class="absolute inset-0 z-0 opacity-10">
+    <Image 
+      src={textureImg} 
+      alt="Architectural texture" 
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-dark/80 mix-blend-multiply"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-primary font-mono uppercase tracking-widest text-sm mb-6 block">Our Philosophy</span>
+    
+    <div class="text-3xl md:text-5xl lg:text-6xl font-heading leading-tight mb-12 font-medium">
+      <PhilosophyReveal client:visible>
+        Most commercial cleaners cut corners when no one is looking. We obsess over the details because your space is a reflection of your brand.
+      </PhilosophyReveal>
+    </div>
+
+    <p class="text-lg md:text-xl text-background/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+      Whether we're performing daily office maintenance in Lehi or a detailed post-construction cleanup in Provo, our standard remains the same. Professional, authoritative, and competitively priced—we deliver the spotless environment your team and clients deserve.
+    </p>
+
+    <a href="#get-started" class="btn-primary">
+      Get a Free On-Site Estimate
+    </a>
+  </div>
+</section>
