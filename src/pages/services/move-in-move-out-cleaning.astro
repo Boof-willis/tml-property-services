@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Move-In & Move-Out Cleaning in Utah County | TML Property Services";
+const description = "Professional move-in and move-out cleaning for renters, landlords, and property managers in Provo, Orem, Lehi, and Utah County. Fast turnovers, deposit-ready results, and flexible scheduling.";
+const canonical = "https://thismessielife.com/services/move-in-move-out-cleaning";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Move-In / Move-Out Cleaning" }
+];
+
+const faqs = [
+  {
+    question: "How quickly can you turn around a move-out clean?",
+    answer: "In most cases we can schedule your move-out cleaning within 24–48 hours of your request. For property managers with regular turnover schedules, we offer priority booking and same-week availability. We understand that vacancy time costs money, and we work to minimize it."
+  },
+  {
+    question: "Will your cleaning help me get my security deposit back?",
+    answer: "That's exactly what our move-out cleaning is designed for. We follow a comprehensive checklist that addresses every area landlords and property managers inspect — appliances inside and out, bathroom fixtures, flooring, baseboards, windows, and more. Many of our clients tell us the clean alone saved them hundreds on their deposit."
+  },
+  {
+    question: "Do you work with property management companies?",
+    answer: "Yes, we partner with multiple property management firms across Utah County. We offer recurring turnover agreements, priority scheduling for unit turnovers, and consolidated invoicing to make the process as simple as possible for managers handling multiple properties."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Move-In Move-Out Cleaning",
+  "provider": {
+    "@type": "CleaningService",
+    "name": "TML Property Services",
+    "url": "https://thismessielife.com",
+    "telephone": "(801) 635-4589"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Provo" },
+    { "@type": "City", "name": "Orem" },
+    { "@type": "City", "name": "Lehi" },
+    { "@type": "City", "name": "American Fork" },
+    { "@type": "City", "name": "Pleasant Grove" },
+    { "@type": "City", "name": "Spanish Fork" },
+    { "@type": "City", "name": "Springville" },
+    { "@type": "City", "name": "Saratoga Springs" },
+    { "@type": "City", "name": "Eagle Mountain" }
+  ],
+  "description": "Thorough move-in and move-out cleaning services for renters, landlords, and property managers in Utah County.",
+  "url": "https://thismessielife.com/services/move-in-move-out-cleaning"
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} faqs={faqSchema}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-4xl md:text-6xl font-heading text-primary mb-6 text-balance">Move-In & Move-Out Cleaning in Utah County</h1>
+      <p class="text-lg md:text-xl text-dark/70 max-w-3xl font-light leading-relaxed">Deposit-ready results for renters moving out and a fresh start for anyone moving in. Fast scheduling, thorough execution, and a checklist built for landlord inspections.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div class="lg:col-span-2 space-y-8 text-dark/80 leading-relaxed text-lg font-light">
+          <p>Moving is stressful enough without worrying about whether your old place will pass inspection or whether your new home is truly clean. TML Property Services specializes in the kind of detailed, top-to-bottom cleaning that makes property transitions seamless — whether you're a renter trying to recover your security deposit, a landlord preparing a unit for the next tenant, or a property manager juggling multiple turnovers across Utah County.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Move-Out Cleaning for Renters</h2>
+          <p>Your lease agreement almost certainly includes language about returning the unit in clean condition. Our move-out cleaning service is built to meet (and exceed) that standard. We work through every room with a comprehensive checklist: inside all appliances including ovens and refrigerators, cabinet interiors, bathroom tile and grout, light fixtures, window tracks, baseboards, closet shelves, and floor-to-wall transitions. We clean the spaces you lived in every day and the ones you probably forgot about — because landlords and property managers don't forget. The goal is simple: walk-through-ready on the first pass so you get your deposit back.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Move-In Cleaning for New Tenants & Homeowners</h2>
+          <p>Just because a property was "cleaned" before you moved in doesn't mean it meets your standards. Our move-in service gives you the fresh start you deserve. We sanitize every surface, deep-clean bathrooms and kitchens, wipe down all cabinetry inside and out, and make sure the space feels truly yours before your furniture arrives. It's especially valuable for families with young children or anyone with sensitivities who wants confidence that their new home has been properly addressed.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Property Manager & Landlord Partnerships</h2>
+          <p>Vacancy days are expensive. Every day a unit sits empty between tenants is lost revenue. We work with property management companies and independent landlords across Provo, Orem, Lehi, American Fork, and surrounding cities to minimize turnover time. Our crews can be on-site within 24–48 hours of a request, and most standard apartments and townhomes are completed in a single visit. For managers handling multiple properties, we offer recurring turnover agreements with priority scheduling and simplified invoicing — one reliable vendor for all your turnover cleaning needs.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Speed Without Shortcuts</h2>
+          <p>We know turnaround speed matters, but we never sacrifice quality to meet a deadline. Our teams are trained to work efficiently through a structured checklist that ensures nothing gets skipped. We bring all of our own professional-grade supplies and equipment, and we document our work so you have confidence in the result before the walkthrough even happens. If something doesn't meet the standard, we'll come back and make it right — that's our guarantee.</p>
+
+          <p>TML Property Services is fully licensed, bonded, and insured. Whether it's a studio apartment in Vineyard or a four-bedroom home in Highland, we handle move-in and move-out cleaning with the same attention to detail.</p>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8">
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">What's Included</h3>
+            <ul class="space-y-3 text-dark/70 text-sm">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Inside all appliances (oven, fridge, dishwasher)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Cabinet & closet interiors</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Bathroom tile, grout & fixtures</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Window tracks & baseboards</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>All floors vacuumed & mopped</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Light fixtures & switch plates</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">Ideal For</h3>
+            <ul class="space-y-2 text-dark/70 text-sm">
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Renters ending a lease</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> New homeowners</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Landlords between tenants</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Property management companies</li>
+            </ul>
+          </div>
+
+          <a href="#get-started" class="btn-primary w-full text-center">Get a Free Estimate</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 bg-light" aria-label="Move-In Move-Out Cleaning FAQ">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Move-In / Move-Out FAQ</h2>
+        <p class="text-lg text-dark/70">Common questions about our turnover cleaning services.</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="faq-group bg-white border border-primary/10 overflow-hidden group">
+            <button class="faq-question w-full text-left font-heading text-xl text-primary p-6 m-0 cursor-pointer flex justify-between items-center bg-white z-10 relative select-none">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-accent transform transition-transform duration-500 group-[.is-open]:rotate-180 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-[.is-open]:grid-rows-[1fr]">
+              <div class="overflow-hidden">
+                <div class="px-6 pb-6 pt-2 text-dark/70 leading-relaxed font-light">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-Links -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-heading text-primary mb-10 text-center">Explore Our Other Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a href="/services/commercial-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Commercial Cleaning</h3>
+          <p class="text-dark/60 text-sm font-light">Janitorial services for offices, medical practices, and retail spaces.</p>
+        </a>
+        <a href="/services/residential-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Residential Cleaning</h3>
+          <p class="text-dark/60 text-sm font-light">Recurring deep cleans and maintenance for private residences.</p>
+        </a>
+        <a href="/services/post-construction-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Post-Construction</h3>
+          <p class="text-dark/60 text-sm font-light">Debris removal and final detail cleaning for contractors and builders.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-started" class="py-24 bg-dark text-background">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-5xl font-heading mb-6">Get your free estimate.</h2>
+      <p class="text-background/80 mb-12 font-light text-lg">Tell us about your space and we'll reach out to schedule your free on-site walkthrough.</p>
+      <div class="max-w-lg mx-auto">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.faq-question');
+      questions.forEach(q => {
+        q.addEventListener('click', () => {
+          const parent = q.parentElement;
+          const wasOpen = parent?.classList.contains('is-open');
+          document.querySelectorAll('.faq-group').forEach(group => {
+            group.classList.remove('is-open');
+          });
+          if (!wasOpen) {
+            parent?.classList.add('is-open');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

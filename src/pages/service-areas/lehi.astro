@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Cleaning Services in Lehi, Utah | TML Property Services";
+const description = "Professional commercial and residential cleaning services in Lehi, Utah. Serving Silicon Slopes, Thanksgiving Point, and growing neighborhoods. Free estimates.";
+const canonical = "https://thismessielife.com/service-areas/lehi";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "Lehi" },
+];
+
+const services = [
+  {
+    title: "Commercial Cleaning",
+    href: "/services/commercial-cleaning",
+    description: "Scalable janitorial solutions for Lehi's fast-growing tech offices and commercial properties.",
+  },
+  {
+    title: "Residential Cleaning",
+    href: "/services/residential-cleaning",
+    description: "Premium home cleaning for Lehi's new developments and established neighborhoods alike.",
+  },
+  {
+    title: "Move-In / Move-Out Cleaning",
+    href: "/services/move-in-move-out-cleaning",
+    description: "Comprehensive property turnovers that meet the expectations of Lehi's competitive housing market.",
+  },
+  {
+    title: "Post-Construction Cleaning",
+    href: "/services/post-construction-cleaning",
+    description: "Thorough cleanup for the constant stream of new builds and tenant improvements across Lehi.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={breadcrumbs} />
+
+  <!-- Hero -->
+  <section class="bg-[#2B2B2B] text-[#FAF8F5] py-20 md:py-28 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">Professional Cleaning Services in Lehi, Utah</h1>
+      <p class="text-lg md:text-xl text-[#FAF8F5]/70 max-w-2xl mx-auto">Keeping pace with one of Utah's fastest-growing cities — one meticulously cleaned space at a time.</p>
+    </div>
+  </section>
+
+  <!-- City Content -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-lg">
+      <p>
+        Lehi has transformed from a quiet agricultural town into the epicenter of Utah's technology industry. The Silicon Slopes corridor running through the city is now home to some of the state's most recognizable companies, and the office parks, coworking spaces, and corporate campuses here need cleaning services that can keep up with the pace. TML Property Services delivers exactly that — professional, scalable cleaning built for modern workplaces.
+      </p>
+      <p>
+        Beyond the tech sector, Lehi's commercial landscape includes the popular Thanksgiving Point destination with its gardens, museums, and event venues, plus a growing retail and dining scene along SR-92 and Pioneer Crossing. We work with facility managers and business owners across all of these sectors, providing everything from nightly office maintenance to periodic deep-cleaning projects that tackle the buildup regular janitorial crews miss.
+      </p>
+      <p>
+        The residential side of Lehi is evolving just as quickly. Master-planned communities like Traverse Mountain and the neighborhoods surrounding Dry Creek have brought thousands of new homes to the area in recent years. Families settling into these developments rely on our recurring cleaning services to maintain the brand-new feel of their spaces long after move-in day. We customize every plan — frequency, scope, and focus areas — to fit the way each household operates.
+      </p>
+      <p>
+        With so much construction activity in Lehi, our post-construction cleaning crews stay busy removing drywall dust, adhesive residue, and paint overspray from newly finished projects. Whether it's a single-family home in the foothills or a 20,000-square-foot office build-out near the freeway interchange, we bring the same exacting standard to every job in Lehi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 md:py-24 px-4 bg-[#F4F4F2]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] text-center mb-12">Services Available in Lehi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="bg-white p-8 border border-[#98a296]/10 shadow-sm hover:shadow-md transition-shadow group">
+            <h3 class="text-xl font-heading text-[#98a296] mb-3 group-hover:text-[#7c847c] transition-colors">{service.title}</h3>
+            <p class="text-[#2B2B2B]/70 mb-4">{service.description}</p>
+            <span class="text-[#7c847c] font-medium text-sm uppercase tracking-widest">Learn More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with Contact Form -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] mb-6">Get a Free Estimate in Lehi</h2>
+        <p class="text-[#2B2B2B]/70 text-lg mb-6">
+          From Silicon Slopes offices to Traverse Mountain homes, we'll build a cleaning plan that fits your property and budget. Reach out for a no-obligation quote.
+        </p>
+        <ul class="space-y-3 text-[#2B2B2B]/70">
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Experience with tech offices and modern workspaces</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Scalable plans that grow with your business</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Fully insured with satisfaction guarantee</span>
+          </li>
+        </ul>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </section>
+</BaseLayout>

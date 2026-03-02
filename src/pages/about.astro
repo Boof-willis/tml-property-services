@@ -1,18 +1,134 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Philosophy from '../components/Philosophy.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import textureImg from '../assets/images/philosophy-texture.png';
+import PhilosophyReveal from '../components/PhilosophyReveal.jsx';
 
-const title = "About | TML Property Services";
-const description = "Learn more about TML Property Services. 5+ years of experience providing detail-oriented commercial and residential cleaning in Utah County.";
+const title = "About TML Property Services | Utah County Cleaning";
+const description = "Meet the team behind TML Property Services. Founded by Briana Jean, we bring obsessive attention to detail to commercial and residential cleaning across Utah County.";
+const canonical = "https://thismessielife.com/about";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "About TML Property Services" }
+];
 ---
 
-<BaseLayout title={title} description={description} canonical="https://thismessielife.com/about">
-  <div class="pt-32 pb-16 max-w-4xl mx-auto px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-heading text-primary mb-6">About TML Property Services</h1>
-    <p class="text-lg text-dark/70 mb-12">
-      Founded on the belief that your space is a reflection of your brand. We bring "Editorial Clean" to Utah County properties.
-    </p>
-  </div>
-  
-  <Philosophy />
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-4xl md:text-6xl font-heading text-primary mb-6 text-balance">About TML Property Services</h1>
+      <p class="text-lg md:text-xl text-dark/70 max-w-3xl font-light leading-relaxed">From a one-woman cleaning company in Nashville to Utah County's detail-oriented property services team.</p>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+
+        <!-- Photo -->
+        <div class="lg:col-span-2">
+          <div class="sticky top-32">
+            <img 
+              src="/images/briana-jean-founder.jpg" 
+              alt="Briana Jean, founder of TML Property Services" 
+              class="w-full object-cover border border-primary/10"
+              width="600"
+              height="750"
+              loading="lazy"
+            />
+            <p class="text-sm text-dark/50 mt-4 font-light italic text-center">Briana Jean, Founder</p>
+          </div>
+        </div>
+
+        <!-- Copy -->
+        <div class="lg:col-span-3 space-y-8 text-dark/80 leading-relaxed text-lg font-light">
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4">How It Started</h2>
+          <p>TML Property Services didn't start with a business plan. It started with a college student who couldn't focus unless her space was clean. Briana Jean — known online as This Messie Life — earned the nickname "Clean Freak" from her roommates at Belmont University. While other students were cramming for exams in cluttered dorm rooms, Briana was organizing closets, scrubbing baseboards, and making everyone else's space feel livable.</p>
+
+          <p>That instinct turned into something real in Nashville. Briana started cleaning homes on the side — just her, a bag of supplies, and a growing reputation for being ridiculously thorough. Word spread. One client became five, five became twenty, and suddenly she had a cleaning company. Not because she planned it, but because the work spoke for itself.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">The Move to Utah</h2>
+          <p>When Briana relocated to Utah County, she brought that same standard with her. What started as residential cleaning quickly expanded into commercial contracts as local businesses discovered what "detail-oriented" actually means when it's not just a marketing phrase. TML Property Services now serves offices, medical practices, retail spaces, and residential properties across Provo, Orem, Lehi, American Fork, and the surrounding area.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">What Makes TML Different</h2>
+          <p>The cleaning industry is full of companies that promise consistency and deliver mediocrity. TML operates differently because the standard was set by someone who genuinely cannot leave a baseboard untouched. Every crew member is trained to Briana's specifications — not a generic checklist, but a detailed methodology that covers every corner someone thinks nobody notices. We notice.</p>
+
+          <p>TML is fully licensed, bonded, and insured. We offer flexible scheduling including nights and weekends. Every service plan comes with a 30-day adjustment period because we'd rather earn your trust over time than lock you into a contract you can't get out of. Whether it's a nightly janitorial contract for a 20,000-square-foot office or a one-time post-construction cleanup, the standard is the same.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Reveal (relocated from homepage component) -->
+  <section class="relative py-32 overflow-hidden bg-dark text-background">
+    <div class="absolute inset-0 z-0 opacity-10">
+      <Image 
+        src={textureImg} 
+        alt="Architectural texture" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-dark/80 mix-blend-multiply"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-primary font-mono uppercase tracking-widest text-sm mb-6 block">In Her Words</span>
+      
+      <div class="text-3xl md:text-5xl lg:text-6xl font-heading leading-tight mb-12 font-medium">
+        <PhilosophyReveal client:visible>
+          I started cleaning homes in Nashville because it was the one thing that made chaos feel manageable. That turned into a company. That company taught me what detail-oriented really means — not as a marketing phrase, but as a standard. Every baseboard. Every light switch. Every corner someone thinks nobody notices. We notice.
+        </PhilosophyReveal>
+      </div>
+
+      <p class="text-xl text-background/80 font-heading italic">
+        — Briana Jean, Founder
+      </p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-heading text-primary mb-12 text-center">What We Stand For</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 bg-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-heading text-primary mb-3">Attention to Detail</h3>
+          <p class="text-dark/70 font-light text-sm leading-relaxed">The corners, the edges, the spots behind doors. We clean the parts of your space that other companies walk right past.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 bg-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-xl font-heading text-primary mb-3">Trust & Accountability</h3>
+          <p class="text-dark/70 font-light text-sm leading-relaxed">Licensed, bonded, insured. Background-checked crews. A 30-day guarantee that puts your satisfaction above our convenience.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-6 bg-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-heading text-primary mb-3">Flexible & Reliable</h3>
+          <p class="text-dark/70 font-light text-sm leading-relaxed">Nights, weekends, and custom schedules. We work around your life, not the other way around.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-dark text-background">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-5xl font-heading mb-6">Let's talk about your space.</h2>
+      <p class="text-background/80 mb-10 font-light text-lg">Whether you need a reliable commercial contract or a detailed residential clean, we'd love to hear from you.</p>
+      <a href="/contact" class="btn-primary">Get a Free Estimate</a>
+    </div>
+  </section>
+
 </BaseLayout>

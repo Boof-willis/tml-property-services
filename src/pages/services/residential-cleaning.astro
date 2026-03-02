@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Residential Cleaning Services in Utah County | TML Property Services";
+const description = "Professional residential cleaning and deep house cleaning in Provo, Orem, Lehi, and Utah County. Recurring service, one-time deep cleans, and flexible scheduling from TML Property Services.";
+const canonical = "https://thismessielife.com/services/residential-cleaning";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Residential Cleaning" }
+];
+
+const faqs = [
+  {
+    question: "How often should I schedule recurring house cleaning?",
+    answer: "Most of our residential clients choose weekly or bi-weekly service to keep their homes consistently maintained. We also offer monthly deep cleans for clients who handle light maintenance themselves and want a thorough reset once a month. We'll help you find the right cadence during your free walkthrough."
+  },
+  {
+    question: "What's the difference between a standard clean and a deep clean?",
+    answer: "A standard clean covers the essentials — vacuuming, mopping, surface wiping, bathroom sanitization, and kitchen cleanup. A deep clean goes further with baseboards, inside appliances, window tracks, light fixtures, grout scrubbing, and areas that accumulate buildup over time. We recommend starting with a deep clean and then transitioning to recurring standard service."
+  },
+  {
+    question: "Do I need to be home during the cleaning?",
+    answer: "Not at all. Many of our clients provide a lockbox code or garage entry and go about their day. We're fully insured and every team member is background-checked. You'll come home to a clean house without rearranging your schedule."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Residential Cleaning",
+  "provider": {
+    "@type": "CleaningService",
+    "name": "TML Property Services",
+    "url": "https://thismessielife.com",
+    "telephone": "(801) 635-4589"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Provo" },
+    { "@type": "City", "name": "Orem" },
+    { "@type": "City", "name": "Lehi" },
+    { "@type": "City", "name": "American Fork" },
+    { "@type": "City", "name": "Pleasant Grove" },
+    { "@type": "City", "name": "Spanish Fork" },
+    { "@type": "City", "name": "Springville" },
+    { "@type": "City", "name": "Saratoga Springs" },
+    { "@type": "City", "name": "Eagle Mountain" }
+  ],
+  "description": "Professional residential house cleaning including recurring maintenance, deep cleans, and flexible scheduling in Utah County.",
+  "url": "https://thismessielife.com/services/residential-cleaning"
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} faqs={faqSchema}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-4xl md:text-6xl font-heading text-primary mb-6 text-balance">Residential Cleaning Services in Utah County</h1>
+      <p class="text-lg md:text-xl text-dark/70 max-w-3xl font-light leading-relaxed">Detailed house cleaning for homeowners who value their time and their space. Recurring service, deep cleans, and flexible scheduling across Provo, Orem, Lehi, and beyond.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div class="lg:col-span-2 space-y-8 text-dark/80 leading-relaxed text-lg font-light">
+          <p>TML Property Services started as This Messie Life — a one-woman mission to bring real care and real standards back to residential cleaning in Utah County. What began as a passion for transforming messy, overwhelming spaces into calm, breathable homes has grown into a full-service cleaning company trusted by homeowners from Provo to Eagle Mountain. The philosophy hasn't changed: your home is personal, and the people cleaning it should treat it that way.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Recurring House Cleaning</h2>
+          <p>Life in Utah County moves fast. Between work, family activities, and everything else competing for your time, keeping up with housework can feel impossible. Our recurring cleaning service takes it off your plate entirely. We offer weekly, bi-weekly, and monthly plans designed around your household's rhythm. Every visit covers vacuuming, mopping, dusting, surface sanitization, bathroom deep-cleaning, kitchen cleanup, and all the areas that accumulate grime between visits. You set the schedule, and we show up consistently — same crew, same standards, every time.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Deep Cleaning</h2>
+          <p>Sometimes a home needs more than a surface-level pass. Our deep cleaning service is built for the areas that get neglected in day-to-day upkeep: baseboards, window tracks, inside appliances, behind furniture, light fixtures, grout lines, and ceiling fans. We recommend starting any new client relationship with a deep clean to establish a baseline, then transitioning to recurring maintenance service. It's also ideal for seasonal resets, pre-holiday preparation, or recovering after extended absences.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">The This Messie Life Standard</h2>
+          <p>Our name carries a story. "This Messie Life" was born from the belief that everyone deserves a clean, organized space — even when life gets messy. That empathy is at the core of how we approach every home we enter. We don't judge clutter. We don't rush through rooms. We clean with intention, and we pay attention to the details most companies overlook: light switch plates, door handles, the edges where baseboards meet flooring, the underside of countertop overhangs. Those details add up to a feeling you notice the moment you walk through your front door.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Customized to Your Home</h2>
+          <p>Every residence is different. A 6,000-square-foot home in Alpine requires a different approach than a two-bedroom townhome in Vineyard. We tailor our scope of work to your home's layout, your priorities, and any special requests — whether that's pet-safe products, focus areas like a home office, or accommodating your family's schedule. During your free on-site walkthrough, we map out exactly what your service will include so there are never surprises on your invoice or in your results.</p>
+
+          <p>We're licensed, bonded, and insured, and every team member is background-checked. Your home is in good hands.</p>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8">
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">What's Included</h3>
+            <ul class="space-y-3 text-dark/70 text-sm">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>All rooms vacuumed & mopped</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Bathrooms sanitized top to bottom</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Kitchen surfaces & appliance exteriors</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Dusting, baseboards & light fixtures</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Window sills & door frames</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Beds made & linens straightened</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">Service Plans</h3>
+            <ul class="space-y-2 text-dark/70 text-sm">
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Weekly recurring service</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Bi-weekly maintenance</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Monthly deep clean</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> One-time deep clean</li>
+            </ul>
+          </div>
+
+          <a href="#get-started" class="btn-primary w-full text-center">Get a Free Estimate</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 bg-light" aria-label="Residential Cleaning FAQ">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Residential Cleaning FAQ</h2>
+        <p class="text-lg text-dark/70">Common questions about our house cleaning services.</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="faq-group bg-white border border-primary/10 overflow-hidden group">
+            <button class="faq-question w-full text-left font-heading text-xl text-primary p-6 m-0 cursor-pointer flex justify-between items-center bg-white z-10 relative select-none">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-accent transform transition-transform duration-500 group-[.is-open]:rotate-180 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-[.is-open]:grid-rows-[1fr]">
+              <div class="overflow-hidden">
+                <div class="px-6 pb-6 pt-2 text-dark/70 leading-relaxed font-light">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-Links -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-heading text-primary mb-10 text-center">Explore Our Other Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a href="/services/commercial-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Commercial Cleaning</h3>
+          <p class="text-dark/60 text-sm font-light">Janitorial services for offices, medical practices, and retail spaces.</p>
+        </a>
+        <a href="/services/move-in-move-out-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Move-In / Move-Out</h3>
+          <p class="text-dark/60 text-sm font-light">Complete property resets for tenants, landlords, and property managers.</p>
+        </a>
+        <a href="/services/post-construction-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Post-Construction</h3>
+          <p class="text-dark/60 text-sm font-light">Debris removal and final detail cleaning for contractors and builders.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-started" class="py-24 bg-dark text-background">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-5xl font-heading mb-6">Get your free estimate.</h2>
+      <p class="text-background/80 mb-12 font-light text-lg">Tell us about your space and we'll reach out to schedule your free on-site walkthrough.</p>
+      <div class="max-w-lg mx-auto">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.faq-question');
+      questions.forEach(q => {
+        q.addEventListener('click', () => {
+          const parent = q.parentElement;
+          const wasOpen = parent?.classList.contains('is-open');
+          document.querySelectorAll('.faq-group').forEach(group => {
+            group.classList.remove('is-open');
+          });
+          if (!wasOpen) {
+            parent?.classList.add('is-open');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

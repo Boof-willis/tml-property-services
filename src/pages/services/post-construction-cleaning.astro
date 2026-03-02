@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Post-Construction Cleaning in Utah County | TML Property Services";
+const description = "Professional post-construction cleaning for general contractors and builders in Provo, Orem, Lehi, and Utah County. Debris removal, dust elimination, and final detail cleaning for new builds and remodels.";
+const canonical = "https://thismessielife.com/services/post-construction-cleaning";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Post-Construction Cleaning" }
+];
+
+const faqs = [
+  {
+    question: "What's the difference between rough clean and final clean?",
+    answer: "A rough clean happens after framing and major construction work is complete — it focuses on removing large debris, sweeping, and clearing the space for finishing trades. A final clean is the last step before the client walkthrough or certificate of occupancy. It covers every surface in detail: windows, fixtures, countertops, cabinetry interiors, floor finishing, and dust removal from vents and ledges. We handle both phases."
+  },
+  {
+    question: "Can you handle both residential and commercial construction cleanup?",
+    answer: "Absolutely. We clean new custom homes, multi-unit residential developments, commercial tenant improvements, and retail buildouts. Whether it's a single-family home in Alpine or a commercial office suite in Lehi, our crews are equipped for the scope of work."
+  },
+  {
+    question: "How far in advance should I schedule post-construction cleaning?",
+    answer: "We recommend booking as soon as you have a projected completion date — even if it shifts. This allows us to hold capacity for your project. For urgent requests, we can often accommodate same-week scheduling depending on the size of the job. The earlier you reach out, the more flexibility we have with timing."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Post-Construction Cleaning",
+  "provider": {
+    "@type": "CleaningService",
+    "name": "TML Property Services",
+    "url": "https://thismessielife.com",
+    "telephone": "(801) 635-4589"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Provo" },
+    { "@type": "City", "name": "Orem" },
+    { "@type": "City", "name": "Lehi" },
+    { "@type": "City", "name": "American Fork" },
+    { "@type": "City", "name": "Pleasant Grove" },
+    { "@type": "City", "name": "Spanish Fork" },
+    { "@type": "City", "name": "Springville" },
+    { "@type": "City", "name": "Saratoga Springs" },
+    { "@type": "City", "name": "Eagle Mountain" }
+  ],
+  "description": "Thorough post-construction cleaning including debris removal, dust elimination, and final detail cleaning for new builds and remodels in Utah County.",
+  "url": "https://thismessielife.com/services/post-construction-cleaning"
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} faqs={faqSchema}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-4xl md:text-6xl font-heading text-primary mb-6 text-balance">Post-Construction Cleaning in Utah County</h1>
+      <p class="text-lg md:text-xl text-dark/70 max-w-3xl font-light leading-relaxed">From rough debris removal to final detail cleaning, we make new builds and remodels walkthrough-ready for general contractors and builders across Utah County.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div class="lg:col-span-2 space-y-8 text-dark/80 leading-relaxed text-lg font-light">
+          <p>Construction creates something new. It also creates a mess that no standard cleaning company is equipped to handle. Drywall dust in every crevice, adhesive residue on countertops, paint overspray on window frames, sawdust in cabinet tracks — post-construction cleaning is a specialized discipline, and it's one that TML Property Services has refined through years of partnership with general contractors and custom home builders throughout Utah County.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Rough Clean: Clearing the Way</h2>
+          <p>The rough clean phase happens after the major structural work is complete but before finishing trades move in. At this stage, we remove bulk debris — scrap lumber, drywall cutoffs, packaging materials, and general construction waste. We sweep and vacuum all surfaces, clear HVAC registers of dust and debris, and prepare the space so that painters, flooring installers, and trim carpenters can work in a clean environment. A proper rough clean prevents construction dust from embedding itself in finishes and saves your finishing subcontractors time and frustration.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Final Detail Clean: Walkthrough-Ready</h2>
+          <p>The final clean is where the transformation happens. This is the last step before you hand keys to the client or schedule the certificate of occupancy inspection. Our crews work through the entire structure with meticulous attention: every window is cleaned inside and out, all light fixtures and hardware are polished, countertops are degreased and buffed, cabinetry interiors are wiped clean, tile and grout are scrubbed, floors are detail-mopped, and every ledge, sill, and vent is dust-free. We understand that the final clean is the first impression your client has of the finished product — and it needs to be flawless.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">New Builds & Custom Homes</h2>
+          <p>Utah County's housing market continues to grow, and builders from Alpine to Saratoga Springs trust us to handle the final cleaning phase of their projects. Whether it's a custom home in Cedar Hills or a multi-lot development in Eagle Mountain, we scale our crews to match your project timeline. We've worked on homes ranging from 2,000 to over 10,000 square feet and understand the unique challenges each presents — from multi-story window cleaning to handling stone and tile surfaces with care.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Commercial Buildouts & Tenant Improvements</h2>
+          <p>Not all construction projects are residential. We handle post-construction cleaning for commercial tenant improvements, retail buildouts, restaurant remodels, and office renovations. The standards are different — polished concrete floors require different treatment than hardwood, and commercial kitchens need a different protocol than a residential bathroom. Our crews are trained to adapt to the materials and standards of each project type, and we bring the right equipment for the job.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Built for Contractor Schedules</h2>
+          <p>We know that construction timelines shift. Delays happen, punch lists extend, and walkthroughs get moved up. Our scheduling is flexible enough to accommodate changes without penalizing you. We'll work with your project manager to coordinate timing, and we can mobilize crews quickly when the schedule compresses. We bring all of our own equipment and supplies — industrial vacuums with HEPA filtration, extension poles, specialized cleaning agents for different surfaces — so there's no dependency on your site for resources.</p>
+
+          <p>TML Property Services is fully licensed, bonded, and insured. We carry the coverage that general contractors require from their subcontractors, and we can provide certificates of insurance upon request.</p>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8">
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">What's Included</h3>
+            <ul class="space-y-3 text-dark/70 text-sm">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Bulk debris & waste removal</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Drywall dust & fine particle removal</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Window cleaning (interior & exterior)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Fixture & hardware polishing</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Cabinet interiors & countertop detail</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>HVAC register & vent cleaning</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">Project Types</h3>
+            <ul class="space-y-2 text-dark/70 text-sm">
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Custom homes & new builds</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Multi-unit developments</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Commercial tenant improvements</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Retail & restaurant buildouts</li>
+            </ul>
+          </div>
+
+          <a href="#get-started" class="btn-primary w-full text-center">Get a Free Estimate</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 bg-light" aria-label="Post-Construction Cleaning FAQ">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Post-Construction Cleaning FAQ</h2>
+        <p class="text-lg text-dark/70">Common questions about our construction cleanup services.</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="faq-group bg-white border border-primary/10 overflow-hidden group">
+            <button class="faq-question w-full text-left font-heading text-xl text-primary p-6 m-0 cursor-pointer flex justify-between items-center bg-white z-10 relative select-none">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-accent transform transition-transform duration-500 group-[.is-open]:rotate-180 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-[.is-open]:grid-rows-[1fr]">
+              <div class="overflow-hidden">
+                <div class="px-6 pb-6 pt-2 text-dark/70 leading-relaxed font-light">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-Links -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-heading text-primary mb-10 text-center">Explore Our Other Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a href="/services/commercial-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Commercial Cleaning</h3>
+          <p class="text-dark/60 text-sm font-light">Janitorial services for offices, medical practices, and retail spaces.</p>
+        </a>
+        <a href="/services/residential-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Residential Cleaning</h3>
+          <p class="text-dark/60 text-sm font-light">Recurring deep cleans and maintenance for private residences.</p>
+        </a>
+        <a href="/services/move-in-move-out-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Move-In / Move-Out</h3>
+          <p class="text-dark/60 text-sm font-light">Complete property resets for tenants, landlords, and property managers.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-started" class="py-24 bg-dark text-background">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-5xl font-heading mb-6">Get your free estimate.</h2>
+      <p class="text-background/80 mb-12 font-light text-lg">Tell us about your space and we'll reach out to schedule your free on-site walkthrough.</p>
+      <div class="max-w-lg mx-auto">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.faq-question');
+      questions.forEach(q => {
+        q.addEventListener('click', () => {
+          const parent = q.parentElement;
+          const wasOpen = parent?.classList.contains('is-open');
+          document.querySelectorAll('.faq-group').forEach(group => {
+            group.classList.remove('is-open');
+          });
+          if (!wasOpen) {
+            parent?.classList.add('is-open');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Commercial Cleaning Services in Utah County | TML Property Services";
+const description = "Professional commercial cleaning and janitorial services for offices, SaaS companies, dental offices, and strip malls in Provo, Orem, Lehi, and Utah County. Flexible contracts and after-hours scheduling.";
+const canonical = "https://thismessielife.com/services/commercial-cleaning";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Commercial Cleaning" }
+];
+
+const faqs = [
+  {
+    question: "What types of commercial spaces do you clean?",
+    answer: "We service a wide range of commercial properties including SaaS and tech offices, dental and medical practices, strip malls, retail storefronts, coworking spaces, and small-to-mid-size office buildings throughout Utah County."
+  },
+  {
+    question: "Can you clean our office after business hours?",
+    answer: "Absolutely. The majority of our commercial clients prefer after-hours service to avoid disrupting their teams. We offer flexible scheduling including evenings, weekends, and early mornings to fit your operational hours."
+  },
+  {
+    question: "Do you offer daily, weekly, and monthly janitorial contracts?",
+    answer: "Yes. We build custom janitorial contracts based on your facility's needs. Whether you need nightly service five days a week or a deep clean once a month, we'll design a plan that keeps your space consistently maintained without overspending."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Commercial Cleaning",
+  "provider": {
+    "@type": "CleaningService",
+    "name": "TML Property Services",
+    "url": "https://thismessielife.com",
+    "telephone": "(801) 635-4589"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Provo" },
+    { "@type": "City", "name": "Orem" },
+    { "@type": "City", "name": "Lehi" },
+    { "@type": "City", "name": "American Fork" },
+    { "@type": "City", "name": "Pleasant Grove" },
+    { "@type": "City", "name": "Spanish Fork" },
+    { "@type": "City", "name": "Springville" },
+    { "@type": "City", "name": "Saratoga Springs" },
+    { "@type": "City", "name": "Eagle Mountain" }
+  ],
+  "description": "Professional commercial cleaning and janitorial services for offices, medical practices, retail spaces, and more in Utah County.",
+  "url": "https://thismessielife.com/services/commercial-cleaning"
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} faqs={faqSchema}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-4xl md:text-6xl font-heading text-primary mb-6 text-balance">Commercial Cleaning Services in Utah County</h1>
+      <p class="text-lg md:text-xl text-dark/70 max-w-3xl font-light leading-relaxed">Reliable janitorial service for offices, medical practices, retail spaces, and commercial buildings across Provo, Orem, Lehi, and the entire Utah County corridor.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div class="lg:col-span-2 space-y-8 text-dark/80 leading-relaxed text-lg font-light">
+          <p>Running a business in Utah County means your space has to reflect the standard you set for your clients and your team. Whether you manage a SaaS company in Lehi's tech corridor, a dental office in Orem, or a strip mall in Spanish Fork, the condition of your facility speaks before you do. TML Property Services provides consistent, detail-oriented commercial cleaning that keeps your workspace spotless without interrupting your operations.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Office Buildings & Tech Companies</h2>
+          <p>Utah County's tech sector is booming, and with that growth comes a demand for workspace environments that attract and retain talent. We work with SaaS startups, enterprise offices, and coworking spaces to deliver thorough cleaning that covers common areas, private offices, conference rooms, kitchen and break areas, and restrooms. Our crews pay attention to high-touch surfaces, glass partitions, and the kind of details that create a professional atmosphere every morning your team walks in.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Medical & Dental Offices</h2>
+          <p>Healthcare environments require a higher standard of cleanliness and compliance. We follow strict protocols for waiting areas, exam rooms, and shared equipment surfaces. Our team understands the difference between surface cleaning and the sanitization-level work that dental offices, urgent care clinics, and therapy practices require. We bring hospital-grade disinfectants and a documented checklist so nothing gets missed.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Strip Malls & Retail Spaces</h2>
+          <p>Storefronts and shared commercial spaces need consistent upkeep to maintain foot traffic and tenant satisfaction. We handle common-area maintenance, glass cleaning, floor care, and trash removal for property managers and individual tenants alike. From Pleasant Grove to Saratoga Springs, our teams service strip malls and retail centers of all sizes.</p>
+
+          <h2 class="text-2xl md:text-3xl font-heading text-primary !mb-4 !mt-12">Flexible Contracts & After-Hours Scheduling</h2>
+          <p>We understand that every commercial client operates differently. That's why we offer daily, weekly, and monthly janitorial contracts with scheduling options that include evenings, weekends, and early mornings. Most of our clients never see us — they just walk into a clean building every day. We also offer supply-inclusive packages where we provide all cleaning products and equipment, or we can work with your preferred products if your facility has specific requirements.</p>
+
+          <p>TML Property Services is fully licensed, bonded, and insured. Every crew member is background-checked and trained to our standards before they set foot in your building. We believe commercial cleaning shouldn't feel transactional — it should feel like an extension of your own team's commitment to excellence.</p>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8">
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">What's Included</h3>
+            <ul class="space-y-3 text-dark/70 text-sm">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Common areas & restrooms</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Kitchens & break rooms</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Conference rooms & glass partitions</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>High-touch surface sanitization</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Floor care & trash removal</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Supply-inclusive option available</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-8 border border-primary/10">
+            <h3 class="text-xl font-heading text-primary mb-4">Contract Options</h3>
+            <ul class="space-y-2 text-dark/70 text-sm">
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Daily janitorial service</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Weekly maintenance cleaning</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> Monthly deep clean</li>
+              <li class="flex items-center gap-2"><span class="w-2 h-2 bg-accent shrink-0"></span> One-time project cleaning</li>
+            </ul>
+          </div>
+
+          <a href="#get-started" class="btn-primary w-full text-center">Get a Free Estimate</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 bg-light" aria-label="Commercial Cleaning FAQ">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Commercial Cleaning FAQ</h2>
+        <p class="text-lg text-dark/70">Common questions about our commercial janitorial services.</p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="faq-group bg-white border border-primary/10 overflow-hidden group">
+            <button class="faq-question w-full text-left font-heading text-xl text-primary p-6 m-0 cursor-pointer flex justify-between items-center bg-white z-10 relative select-none">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-accent transform transition-transform duration-500 group-[.is-open]:rotate-180 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-in-out group-[.is-open]:grid-rows-[1fr]">
+              <div class="overflow-hidden">
+                <div class="px-6 pb-6 pt-2 text-dark/70 leading-relaxed font-light">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-Links -->
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-heading text-primary mb-10 text-center">Explore Our Other Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <a href="/services/residential-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Residential Cleaning</h3>
+          <p class="text-dark/60 text-sm font-light">Recurring deep cleans and maintenance for private residences across Utah County.</p>
+        </a>
+        <a href="/services/move-in-move-out-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Move-In / Move-Out</h3>
+          <p class="text-dark/60 text-sm font-light">Complete property resets for tenants, landlords, and property managers.</p>
+        </a>
+        <a href="/services/post-construction-cleaning" class="bg-white p-8 border border-primary/10 hover:border-primary/30 transition-colors group">
+          <h3 class="text-xl font-heading text-primary mb-3 group-hover:text-accent transition-colors">Post-Construction</h3>
+          <p class="text-dark/60 text-sm font-light">Debris removal and final detail cleaning for contractors and builders.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-started" class="py-24 bg-dark text-background">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-5xl font-heading mb-6">Get your free estimate.</h2>
+      <p class="text-background/80 mb-12 font-light text-lg">Tell us about your space and we'll reach out to schedule your free on-site walkthrough.</p>
+      <div class="max-w-lg mx-auto">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.faq-question');
+      questions.forEach(q => {
+        q.addEventListener('click', () => {
+          const parent = q.parentElement;
+          const wasOpen = parent?.classList.contains('is-open');
+          document.querySelectorAll('.faq-group').forEach(group => {
+            group.classList.remove('is-open');
+          });
+          if (!wasOpen) {
+            parent?.classList.add('is-open');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

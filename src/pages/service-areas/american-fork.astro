@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Cleaning Services in American Fork, Utah | TML Property Services";
+const description = "Professional commercial and residential cleaning services in American Fork, Utah. Serving Main Street businesses, medical offices, and neighborhoods. Free estimates.";
+const canonical = "https://thismessielife.com/service-areas/american-fork";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "American Fork" },
+];
+
+const services = [
+  {
+    title: "Commercial Cleaning",
+    href: "/services/commercial-cleaning",
+    description: "Professional cleaning for American Fork's Main Street shops, medical offices, and professional suites.",
+  },
+  {
+    title: "Residential Cleaning",
+    href: "/services/residential-cleaning",
+    description: "Reliable recurring cleans for families across American Fork's established and newer neighborhoods.",
+  },
+  {
+    title: "Move-In / Move-Out Cleaning",
+    href: "/services/move-in-move-out-cleaning",
+    description: "Top-to-bottom property resets that help landlords and tenants transition smoothly.",
+  },
+  {
+    title: "Post-Construction Cleaning",
+    href: "/services/post-construction-cleaning",
+    description: "Detailed post-build cleanup for contractors and developers working in the American Fork area.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={breadcrumbs} />
+
+  <!-- Hero -->
+  <section class="bg-[#2B2B2B] text-[#FAF8F5] py-20 md:py-28 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">Professional Cleaning Services in American Fork, Utah</h1>
+      <p class="text-lg md:text-xl text-[#FAF8F5]/70 max-w-2xl mx-auto">Dependable, detail-driven cleaning for the businesses and homes that make American Fork thrive.</p>
+    </div>
+  </section>
+
+  <!-- City Content -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-lg">
+      <p>
+        American Fork is a city built on community. Main Street is lined with small businesses — from family-owned restaurants and boutique shops to accounting firms and insurance agencies — and the neighborhoods radiating outward are home to families who value a well-kept property. TML Property Services is proud to serve this community with cleaning services designed around the specific needs of American Fork businesses and homeowners.
+      </p>
+      <p>
+        The commercial district along Main Street and the professional parks near the I-15 interchange create a diverse mix of cleaning needs. We work with medical and dental offices that require strict sanitation standards, retail spaces that need spotless floors and display areas, and professional suites where a clean environment directly influences client confidence. Our crews are trained to meet each industry's requirements and we carry full liability insurance for your peace of mind.
+      </p>
+      <p>
+        Residentially, American Fork offers a range of housing — from historic homes near the city center to the larger properties in the Timpanogos foothills. Our residential cleaning plans are never one-size-fits-all. We discuss your household's specific needs during a walkthrough, then build a recurring schedule that addresses high-traffic areas, pet considerations, and any surfaces that need specialized care. The result is a home that consistently feels fresh and organized.
+      </p>
+      <p>
+        American Fork continues to see steady development, particularly along the 100 East corridor and in newer planned communities to the north. Our move-in/move-out and post-construction teams serve this growth by ensuring every newly built or recently vacated property is cleaned to a standard that exceeds expectations. When your property is in American Fork, trust the team that treats every clean like a reflection of their own reputation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 md:py-24 px-4 bg-[#F4F4F2]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] text-center mb-12">Services Available in American Fork</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="bg-white p-8 border border-[#98a296]/10 shadow-sm hover:shadow-md transition-shadow group">
+            <h3 class="text-xl font-heading text-[#98a296] mb-3 group-hover:text-[#7c847c] transition-colors">{service.title}</h3>
+            <p class="text-[#2B2B2B]/70 mb-4">{service.description}</p>
+            <span class="text-[#7c847c] font-medium text-sm uppercase tracking-widest">Learn More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with Contact Form -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] mb-6">Get a Free Estimate in American Fork</h2>
+        <p class="text-[#2B2B2B]/70 text-lg mb-6">
+          Whether you run a Main Street storefront or need your home kept in top shape, we'll put together an honest cleaning plan tailored to your property.
+        </p>
+        <ul class="space-y-3 text-[#2B2B2B]/70">
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Trusted by medical offices and professional suites</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Consistent results with dedicated cleaning teams</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>No long-term contracts — cancel anytime</span>
+          </li>
+        </ul>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Cleaning Services in Sandy, Utah | TML Property Services";
+const description = "Professional commercial and residential cleaning services in Sandy, Utah. Serving South Towne business corridor, Sandy Civic Center area, and corporate offices. Free estimates.";
+const canonical = "https://thismessielife.com/service-areas/sandy";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "Sandy" },
+];
+
+const services = [
+  {
+    title: "Commercial Cleaning",
+    href: "/services/commercial-cleaning",
+    description: "Polished cleaning programs for Sandy's corporate offices, retail centers, and professional buildings.",
+  },
+  {
+    title: "Residential Cleaning",
+    href: "/services/residential-cleaning",
+    description: "Meticulous home cleaning for families in Sandy's diverse and well-established neighborhoods.",
+  },
+  {
+    title: "Move-In / Move-Out Cleaning",
+    href: "/services/move-in-move-out-cleaning",
+    description: "Complete property turnovers for Sandy landlords, real estate agents, and relocating families.",
+  },
+  {
+    title: "Post-Construction Cleaning",
+    href: "/services/post-construction-cleaning",
+    description: "Professional debris and dust removal for Sandy's ongoing residential and commercial development.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={breadcrumbs} />
+
+  <!-- Hero -->
+  <section class="bg-[#2B2B2B] text-[#FAF8F5] py-20 md:py-28 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">Professional Cleaning Services in Sandy, Utah</h1>
+      <p class="text-lg md:text-xl text-[#FAF8F5]/70 max-w-2xl mx-auto">Elevated cleaning for the corporate hubs and established communities of south Salt Lake County.</p>
+    </div>
+  </section>
+
+  <!-- City Content -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-lg">
+      <p>
+        Sandy is one of the most established and professionally dense cities along the Wasatch Front. The South Towne business corridor — stretching from the I-15 interchange near 10600 South through the retail and office complexes surrounding South Towne Center — is home to corporate headquarters, regional branch offices, and a broad mix of service-industry businesses. TML Property Services provides the caliber of cleaning these environments demand: thorough, consistent, and built around your operational schedule.
+      </p>
+      <p>
+        Near the Sandy Civic Center and City Hall, you'll find a concentration of financial firms, law offices, and medical practices that depend on immaculate waiting areas and workspaces. First impressions matter in these settings, and our commercial cleaning teams ensure that lobbies are polished, restrooms are sanitized, and common areas reflect the professionalism of the businesses inside. We assign dedicated crews so your space is cleaned by people who already know its layout and your preferences.
+      </p>
+      <p>
+        Sandy's residential neighborhoods range from the mature, tree-lined streets near the city center to the larger custom homes along the mountain benches east of Wasatch Boulevard. Our residential cleaning services adapt accordingly. Whether it's a weekly clean for a busy family in a four-bedroom home or a bi-weekly maintenance plan for a retired couple, we tailor every detail — from the products we use to the areas we prioritize — based on a thorough initial consultation.
+      </p>
+      <p>
+        With continued infill development near the TRAX line stations and ongoing commercial renovations along State Street, Sandy keeps our post-construction and move-in/move-out crews in steady demand. We remove construction-phase residue down to the last window track and baseboard, delivering spaces that are truly ready for business or move-in day. Contact us today to see what a detail-first approach to cleaning looks like in Sandy.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 md:py-24 px-4 bg-[#F4F4F2]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] text-center mb-12">Services Available in Sandy</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="bg-white p-8 border border-[#98a296]/10 shadow-sm hover:shadow-md transition-shadow group">
+            <h3 class="text-xl font-heading text-[#98a296] mb-3 group-hover:text-[#7c847c] transition-colors">{service.title}</h3>
+            <p class="text-[#2B2B2B]/70 mb-4">{service.description}</p>
+            <span class="text-[#7c847c] font-medium text-sm uppercase tracking-widest">Learn More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with Contact Form -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] mb-6">Get a Free Estimate in Sandy</h2>
+        <p class="text-[#2B2B2B]/70 text-lg mb-6">
+          Your space deserves more than surface-level cleaning. Share your needs and we'll build a plan that reflects the professional standards Sandy businesses and homeowners expect.
+        </p>
+        <ul class="space-y-3 text-[#2B2B2B]/70">
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Dedicated crews assigned to your property</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Experience with corporate and medical environments</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Responsive communication and transparent pricing</span>
+          </li>
+        </ul>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </section>
+</BaseLayout>

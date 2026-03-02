@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Cleaning Services in Provo, Utah | TML Property Services";
+const description = "Professional commercial and residential cleaning services in Provo, Utah. Serving BYU campus area, downtown Provo, and surrounding neighborhoods. Free estimates.";
+const canonical = "https://thismessielife.com/service-areas/provo";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "Provo" },
+];
+
+const services = [
+  {
+    title: "Commercial Cleaning",
+    href: "/services/commercial-cleaning",
+    description: "Routine and deep cleaning for offices, retail spaces, and commercial properties throughout Provo.",
+  },
+  {
+    title: "Residential Cleaning",
+    href: "/services/residential-cleaning",
+    description: "Thorough home cleaning tailored to your schedule and the unique needs of your household.",
+  },
+  {
+    title: "Move-In / Move-Out Cleaning",
+    href: "/services/move-in-move-out-cleaning",
+    description: "Complete property resets for landlords, tenants, and property managers in the Provo rental market.",
+  },
+  {
+    title: "Post-Construction Cleaning",
+    href: "/services/post-construction-cleaning",
+    description: "Detailed dust and debris removal after renovations, remodels, or new construction projects.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={breadcrumbs} />
+
+  <!-- Hero -->
+  <section class="bg-[#2B2B2B] text-[#FAF8F5] py-20 md:py-28 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">Professional Cleaning Services in Provo, Utah</h1>
+      <p class="text-lg md:text-xl text-[#FAF8F5]/70 max-w-2xl mx-auto">Detail-oriented commercial and residential cleaning for Utah County's college-town hub.</p>
+    </div>
+  </section>
+
+  <!-- City Content -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-lg">
+      <p>
+        Provo sits at the heart of Utah County, blending a vibrant university atmosphere with a growing business community. From the tree-lined streets near BYU campus to the locally owned shops along Center Street in downtown Provo, this city demands spaces that feel as welcoming as the mountain views that surround it. TML Property Services brings a meticulous, detail-first approach to every property we clean here.
+      </p>
+      <p>
+        Whether you manage a coworking space near the Riverwoods district, own a dental practice off University Avenue, or simply want your home in the neighborhoods east of campus kept in pristine condition, our team builds a cleaning plan around your schedule and standards. We understand that Provo's mix of student housing, family residences, and professional offices each require a different touch — and we deliver on all of them.
+      </p>
+      <p>
+        Our commercial clients in Provo rely on us for consistent nightly or weekly janitorial service that keeps lobbies, break rooms, and restrooms spotless without disrupting business hours. For homeowners, we offer recurring deep cleans that address the fine dust carried in from construction along the I-15 corridor and seasonal pollen from the Wasatch foothills. Move-in and move-out cleaning is one of our most requested services in Provo given the city's high tenant turnover rate, and we ensure every unit is reset to a like-new standard.
+      </p>
+      <p>
+        TML Property Services is locally operated and familiar with the rhythms of Provo — from semester move-out surges to the steady needs of downtown businesses year-round. We show up on time, communicate clearly, and treat every space as if it were our own.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 md:py-24 px-4 bg-[#F4F4F2]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] text-center mb-12">Services Available in Provo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="bg-white p-8 border border-[#98a296]/10 shadow-sm hover:shadow-md transition-shadow group">
+            <h3 class="text-xl font-heading text-[#98a296] mb-3 group-hover:text-[#7c847c] transition-colors">{service.title}</h3>
+            <p class="text-[#2B2B2B]/70 mb-4">{service.description}</p>
+            <span class="text-[#7c847c] font-medium text-sm uppercase tracking-widest">Learn More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with Contact Form -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] mb-6">Get a Free Estimate in Provo</h2>
+        <p class="text-[#2B2B2B]/70 text-lg mb-6">
+          Tell us about your space and we'll put together a custom cleaning plan. No obligations, no pressure — just an honest quote from a local team that takes pride in the work.
+        </p>
+        <ul class="space-y-3 text-[#2B2B2B]/70">
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Free on-site or virtual estimates</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Flexible day, evening, and weekend scheduling</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Locally owned and operated in Utah County</span>
+          </li>
+        </ul>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </section>
+</BaseLayout>

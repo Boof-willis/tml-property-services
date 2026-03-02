@@ -90,7 +90,7 @@ export default function ContactForm() {
                   key={type}
                   type="button"
                   onClick={() => handleSelectService(type)}
-                  className={`p-5 text-left border transition-all duration-300 hover:border-primary group ${formData.service === type ? 'border-primary bg-background' : 'border-primary/10 bg-white'}`}
+                  className={`p-5 text-left border transition-all duration-300 hover:border-primary group cursor-pointer ${formData.service === type ? 'border-primary bg-background' : 'border-primary/10 bg-white'}`}
                 >
                   <div className="font-medium text-primary mb-1 group-hover:text-dark transition-colors">{type}</div>
                   <div className="text-xs text-dark/60 leading-relaxed">
@@ -134,10 +134,10 @@ export default function ContactForm() {
               </div>
 
               <div className="flex gap-4 pt-2">
-                <button type="button" onClick={prevStep} className="px-6 py-4 border border-dark text-dark font-medium text-sm tracking-widest uppercase hover:bg-light transition-colors">
+                <button type="button" onClick={prevStep} className="px-6 py-4 border border-dark text-dark font-medium text-sm tracking-widest uppercase hover:bg-light transition-colors cursor-pointer">
                   Back
                 </button>
-                <button type="button" onClick={() => formData.zip && nextStep()} className="flex-1 btn-primary text-sm w-full" disabled={!formData.zip}>
+                <button type="button" onClick={() => formData.zip && nextStep()} className="flex-1 btn-primary text-sm w-full cursor-pointer disabled:cursor-not-allowed" disabled={!formData.zip}>
                   Continue
                 </button>
               </div>
@@ -175,10 +175,10 @@ export default function ContactForm() {
               </div>
 
               <div className="flex gap-4 pt-2">
-                <button type="button" onClick={prevStep} className="px-6 py-4 border border-dark text-dark font-medium text-sm tracking-widest uppercase hover:bg-light transition-colors">
+                <button type="button" onClick={prevStep} className="px-6 py-4 border border-dark text-dark font-medium text-sm tracking-widest uppercase hover:bg-light transition-colors cursor-pointer">
                   Back
                 </button>
-                <button type="submit" disabled={status === 'loading'} className="flex-1 btn-accent py-4 text-sm disabled:opacity-70 disabled:cursor-not-allowed">
+                <button type="submit" disabled={status === 'loading'} className="flex-1 btn-accent py-4 text-sm disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer">
                   {status === 'loading' ? 'Sending...' : 'Get My Estimate'}
                 </button>
               </div>

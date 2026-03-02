@@ -1,34 +1,63 @@
 ---
 const cities = [
-  "Provo", "Orem", "Lindon", "Pleasant Grove", 
-  "American Fork", "Spanish Fork", "Springville", "Vineyard", 
-  "Lehi", "Alpine", "Cedar Hills", "Highland", 
-  "Saratoga Springs", "Eagle Mountain", "Sandy", "Draper"
+  { name: "Provo", slug: "provo" },
+  { name: "Orem", slug: "orem" },
+  { name: "Lehi", slug: "lehi" },
+  { name: "American Fork", slug: "american-fork" },
+  { name: "Sandy", slug: "sandy" },
+];
+
+const additionalCities = [
+  "Lindon", "Pleasant Grove", "Spanish Fork", "Springville", 
+  "Vineyard", "Alpine", "Cedar Hills", "Highland", 
+  "Saratoga Springs", "Eagle Mountain", "Draper"
 ];
 ---
 
 <section id="areas" class="py-24 bg-white border-t border-primary/5" aria-label="Service Areas">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <span class="text-secondary font-mono uppercase tracking-widest text-sm mb-4 block">Service Area</span>
-    <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Serving Utah County & Beyond</h2>
-    
-    <p class="text-lg text-dark/70 max-w-2xl mx-auto mb-12">
-      From comprehensive commercial contracts in Lehi to move-in deep cleans in Provo, our teams are deployed daily across the region.
-    </p>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      
+      <!-- Left: Heading & copy -->
+      <div>
+        <span class="text-secondary font-mono uppercase tracking-widest text-sm mb-4 block">Service Area</span>
+        <h2 class="text-3xl md:text-5xl font-heading text-primary mb-6">Serving Utah County & Beyond</h2>
+        <p class="text-lg text-dark/70 mb-8 leading-relaxed font-light">
+          From comprehensive commercial contracts in Lehi to move-in deep cleans in Provo, our teams are deployed daily across the region. We serve all of Utah County and parts of Salt Lake County.
+        </p>
+        <div class="inline-flex flex-col items-start">
+          <a href="/contact" class="btn-primary mb-4">
+            Request Service in Your City
+          </a>
+          <p class="text-sm text-dark/50">Don't see your city? Contact us to verify coverage.</p>
+        </div>
+      </div>
 
-    <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto mb-12">
-      {cities.map(city => (
-        <span class="px-4 py-2 bg-light text-dark/80 text-sm font-medium rounded-full border border-primary/10">
-          {city}
-        </span>
-      ))}
-    </div>
+      <!-- Right: City directory -->
+      <div>
+        <h3 class="text-lg font-heading text-primary mb-6">Primary Service Areas</h3>
+        <div class="space-y-0 mb-8">
+          {cities.map(city => (
+            <a 
+              href={`/service-areas/${city.slug}`} 
+              class="flex items-center justify-between py-4 border-b border-primary/10 text-dark hover:text-accent transition-colors group"
+            >
+              <span class="font-medium">{city.name}, Utah</span>
+              <svg class="w-4 h-4 text-dark/30 group-hover:text-accent group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          ))}
+        </div>
 
-    <div class="inline-flex flex-col items-center">
-      <a href="#get-started" class="btn-primary mb-4">
-        Request Service in Your City
-      </a>
-      <p class="text-sm text-dark/50">Don't see your city? Contact us to verify coverage.</p>
+        <h3 class="text-lg font-heading text-primary mb-4">Also Serving</h3>
+        <div class="flex flex-wrap gap-2">
+          {additionalCities.map(city => (
+            <span class="px-3 py-1.5 bg-light text-dark/70 text-sm border border-primary/10">
+              {city}
+            </span>
+          ))}
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

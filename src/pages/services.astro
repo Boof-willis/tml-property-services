@@ -1,36 +1,72 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 
-const title = "Services | TML Property Services";
-const description = "Comprehensive commercial and residential cleaning services in Utah County. Detail-oriented, flexible scheduling, and competitive pricing.";
+const title = "Cleaning Services in Utah County | TML Property Services";
+const description = "Commercial cleaning, residential cleaning, move-in/move-out, and post-construction cleaning services in Provo, Orem, Lehi, and Utah County. Licensed, bonded & insured.";
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Services" }
+];
+
+const services = [
+  {
+    title: "Commercial Cleaning",
+    description: "Daily, weekly, and monthly janitorial contracts for offices, SaaS companies, medical practices, and retail spaces. After-hours scheduling and supply-inclusive options available.",
+    href: "/services/commercial-cleaning"
+  },
+  {
+    title: "Residential Cleaning",
+    description: "Recurring deep cleans and maintenance for homeowners who demand perfection. Customizable plans that flex with your lifestyle and schedule.",
+    href: "/services/residential-cleaning"
+  },
+  {
+    title: "Move-In / Move-Out Cleaning",
+    description: "Complete property resets for renters, landlords, and property managers. Thorough detail cleaning that helps secure deposits and impress new occupants.",
+    href: "/services/move-in-move-out-cleaning"
+  },
+  {
+    title: "Post-Construction Cleaning",
+    description: "Rough clean and final detail cleaning for general contractors and builders. HEPA filtration, debris removal, and flexible scheduling around project timelines.",
+    href: "/services/post-construction-cleaning"
+  }
+];
 ---
 
 <BaseLayout title={title} description={description} canonical="https://thismessielife.com/services">
-  <div class="pt-32 pb-24 max-w-4xl mx-auto px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-heading text-primary mb-6">Our Services</h1>
-    <p class="text-lg text-dark/70 mb-12">Detail-oriented cleaning you can count on.</p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-      <div class="bg-white p-8 container-rounded shadow-sm border border-primary/5">
-        <h2 class="text-2xl font-heading text-primary mb-4">Commercial Cleaning</h2>
-        <p class="text-dark/70 mb-4">Office maintenance for SaaS companies, medical offices, and retail spaces. Flexible night and weekend scheduling available.</p>
-        <a href="/services/commercial" class="text-accent font-medium hover:underline">Learn more &rarr;</a>
-      </div>
-      <div class="bg-white p-8 container-rounded shadow-sm border border-primary/5">
-        <h2 class="text-2xl font-heading text-primary mb-4">Residential Cleaning</h2>
-        <p class="text-dark/70 mb-4">Recurring deep cleans for homeowners who demand perfection. Flexible to your lifestyle.</p>
-        <a href="/services/residential" class="text-accent font-medium hover:underline">Learn more &rarr;</a>
-      </div>
-      <div class="bg-white p-8 container-rounded shadow-sm border border-primary/5">
-        <h2 class="text-2xl font-heading text-primary mb-4">Move-In / Move-Out</h2>
-        <p class="text-dark/70 mb-4">Detailed sweeps to ensure properties are perfectly reset for the next tenant or owner.</p>
-        <a href="/services/move" class="text-accent font-medium hover:underline">Learn more &rarr;</a>
-      </div>
-      <div class="bg-white p-8 container-rounded shadow-sm border border-primary/5">
-        <h2 class="text-2xl font-heading text-primary mb-4">Post-Construction</h2>
-        <p class="text-dark/70 mb-4">Thorough dust and debris removal for contractors and new builds. We make your finished project shine.</p>
-        <a href="/services/post-construction" class="text-accent font-medium hover:underline">Learn more &rarr;</a>
+  
+  <section class="pt-32 pb-16 bg-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbItems} />
+      <h1 class="text-4xl md:text-6xl font-heading text-primary mb-6 text-balance">Cleaning Services in Utah County</h1>
+      <p class="text-lg md:text-xl text-dark/70 max-w-3xl font-light leading-relaxed">From corporate offices to family homes, we bring obsessive attention to detail at competitive pricing. Every service comes with our 30-day guarantee.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-background">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map(service => (
+          <a href={service.href} class="bg-white p-10 border border-primary/10 hover:border-primary/30 transition-all group">
+            <h2 class="text-2xl font-heading text-primary mb-4 group-hover:text-accent transition-colors">{service.title}</h2>
+            <p class="text-dark/70 font-light leading-relaxed mb-6">{service.description}</p>
+            <span class="text-accent font-medium text-sm uppercase tracking-widest inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+              Learn More
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        ))}
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="py-24 bg-dark text-background text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-5xl font-heading mb-6">Ready to get started?</h2>
+      <p class="text-background/80 mb-10 font-light text-lg">Request a free on-site estimate and we'll build a custom plan for your space.</p>
+      <a href="/contact" class="btn-primary">Get a Free Estimate</a>
+    </div>
+  </section>
+
 </BaseLayout>

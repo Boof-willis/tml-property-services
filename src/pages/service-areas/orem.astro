@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ContactForm from '../../components/ContactForm.jsx';
+
+const title = "Cleaning Services in Orem, Utah | TML Property Services";
+const description = "Professional commercial and residential cleaning services in Orem, Utah. Serving State Street corridor, University Mall area, and local businesses. Free estimates.";
+const canonical = "https://thismessielife.com/service-areas/orem";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "Orem" },
+];
+
+const services = [
+  {
+    title: "Commercial Cleaning",
+    href: "/services/commercial-cleaning",
+    description: "Dependable office and workspace cleaning for Orem's thriving business and tech community.",
+  },
+  {
+    title: "Residential Cleaning",
+    href: "/services/residential-cleaning",
+    description: "Personalized home cleaning plans designed around the way your family actually lives.",
+  },
+  {
+    title: "Move-In / Move-Out Cleaning",
+    href: "/services/move-in-move-out-cleaning",
+    description: "Turnover-ready cleans for apartments, condos, and single-family rentals across Orem.",
+  },
+  {
+    title: "Post-Construction Cleaning",
+    href: "/services/post-construction-cleaning",
+    description: "Fine-detail cleanup after builds and renovations so finished spaces look truly finished.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumb items={breadcrumbs} />
+
+  <!-- Hero -->
+  <section class="bg-[#2B2B2B] text-[#FAF8F5] py-20 md:py-28 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">Professional Cleaning Services in Orem, Utah</h1>
+      <p class="text-lg md:text-xl text-[#FAF8F5]/70 max-w-2xl mx-auto">Consistent, high-quality cleaning for Orem's growing network of businesses and homes.</p>
+    </div>
+  </section>
+
+  <!-- City Content -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto prose prose-lg">
+      <p>
+        Orem has quietly become one of the most dynamic cities in Utah County. The State Street corridor hums with restaurants, professional offices, and retail storefronts, while the neighborhoods stretching east toward the mountains are filled with families who take genuine pride in their homes. TML Property Services is here to match that standard with cleaning that pays attention to the details most providers overlook.
+      </p>
+      <p>
+        The area surrounding University Mall and the adjacent business parks is home to a growing cluster of tech startups, medical clinics, and financial firms. These businesses need reliable cleaning partners who show up consistently and deliver results that reflect well on their brand. We tailor our commercial cleaning schedules to minimize disruption — early mornings, late evenings, or weekends — whatever keeps your operations running smoothly.
+      </p>
+      <p>
+        On the residential side, Orem families benefit from our recurring deep-clean programs. We handle everything from kitchen grease buildup to bathroom tile detailing, using professional-grade products that are tough on grime but safe for children and pets. Our team takes the time to learn each home's layout and your specific priorities so every visit builds on the last.
+      </p>
+      <p>
+        With rapid development happening across Orem — new townhome communities near 800 North and commercial build-outs along State Street — our post-construction and move-in/move-out services stay in high demand. We remove construction dust from every surface, vent, and window track so finished spaces are genuinely ready for occupancy. If your property is in Orem, we'd like to earn your trust one clean at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 md:py-24 px-4 bg-[#F4F4F2]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] text-center mb-12">Services Available in Orem</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <a href={service.href} class="bg-white p-8 border border-[#98a296]/10 shadow-sm hover:shadow-md transition-shadow group">
+            <h3 class="text-xl font-heading text-[#98a296] mb-3 group-hover:text-[#7c847c] transition-colors">{service.title}</h3>
+            <p class="text-[#2B2B2B]/70 mb-4">{service.description}</p>
+            <span class="text-[#7c847c] font-medium text-sm uppercase tracking-widest">Learn More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with Contact Form -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading text-[#98a296] mb-6">Get a Free Estimate in Orem</h2>
+        <p class="text-[#2B2B2B]/70 text-lg mb-6">
+          Ready to see the difference a detail-focused cleaning team can make? Fill out the form and we'll respond with a custom quote — usually within a few hours.
+        </p>
+        <ul class="space-y-3 text-[#2B2B2B]/70">
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>No contracts required — flexible service agreements</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Serving Orem businesses and homes 7 days a week</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#7c847c] mt-1">&#10003;</span>
+            <span>Background-checked, insured cleaning professionals</span>
+          </li>
+        </ul>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </section>
+</BaseLayout>

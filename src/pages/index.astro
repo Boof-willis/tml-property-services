@@ -3,13 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import TrustBar from '../components/TrustBar.astro';
 import Features from '../components/Features.astro';
+import ImageDivider from '../components/ImageDivider.astro';
+import MidPageCTA from '../components/MidPageCTA.astro';
 import SocialProof from '../components/SocialProof.astro';
 import Philosophy from '../components/Philosophy.astro';
 import ServiceArea from '../components/ServiceArea.astro';
 import FAQ, { faqSchema } from '../components/FAQ.astro';
 import GetStarted from '../components/GetStarted.astro';
 
-// SEO Metadata
 const title = "Commercial & Residential Cleaning Utah County | TML Property Services";
 const description = "Detail-oriented commercial and residential cleaning solutions in Provo, Orem, Lehi, and Utah County. Flexible scheduling, 30-day guarantee, licensed & insured. Get a free estimate.";
 const canonical = "https://thismessielife.com";
@@ -25,11 +26,14 @@ const canonical = "https://thismessielife.com";
   <TrustBar />
   <Features />
   
-  <!-- KSL Video Section as trust signal requested in brief -->
+  <!-- Visual break: full-bleed image with testimonial pull quote -->
+  <ImageDivider />
+
+  <!-- KSL Video Section -->
   <section class="py-24 bg-[#FAF8F5]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <span class="text-accent font-mono uppercase tracking-widest text-sm mb-4 block">As Seen On</span>
-      <h2 class="text-3xl md:text-5xl font-heading text-primary mb-12">KSL Studio 5</h2>
+      <h2 class="text-3xl md:text-5xl font-heading text-primary mb-12">Featured on KSL Studio 5</h2>
       
       <div class="relative w-full overflow-hidden rounded-xl shadow-2xl aspect-video bg-primary">
         <iframe 
@@ -38,15 +42,20 @@ const canonical = "https://thismessielife.com";
           title="TML Property Services on KSL Studio 5" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          loading="lazy"
           allowfullscreen>
         </iframe>
       </div>
     </div>
   </section>
 
+  <!-- Mid-page CTA for visitors not ready to convert -->
+  <MidPageCTA />
+
   <SocialProof />
   <Philosophy />
   <ServiceArea />
   <FAQ />
   <GetStarted />
+
 </BaseLayout>
